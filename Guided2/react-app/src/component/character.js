@@ -79,7 +79,7 @@ function Homeworld(props){
             <section id="films">
             <h2>Films appeared in</h2>
             <ul>
-                <Films/>
+                <Films id= {id}/>
             </ul>
         </section>
         </div>

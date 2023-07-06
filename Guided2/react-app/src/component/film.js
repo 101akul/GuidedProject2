@@ -6,7 +6,7 @@ const baseUrl = `http://localhost:4000/api`
     const[Film, setFilm] = useState([]);
 
     async function getFilm(){
-        var film = await fetchFilm()
+        var film = await fetchFilm();
         setFilm(film);
     }
     async function fetchFilm() {

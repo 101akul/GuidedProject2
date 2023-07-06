@@ -8,8 +8,9 @@ const baseUrl = `http://localhost:4000/api`
         var films = await fetchFilms()
         setFilms(films);
     }
+
     async function fetchFilms() {
-        var filmsUrl = `${baseUrl}/characters/1/films`;
+        var filmsUrl = `${baseUrl}/characters/${props.id}/films`;
         return await fetch(filmsUrl)
       .then(res => res.json())
   }
