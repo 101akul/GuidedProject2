@@ -2,22 +2,22 @@ import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 const baseUrl = `http://localhost:4000/api`
 
- function Characters(){
-    const[characters, setCharacters] = useState([]);
-    async function getCharacters(){
-        var characters = await fetchCharacters()
-        setCharacters(characters);
+ function Planet(){
+    const[planets, setPlanet] = useState([]);
+    async function getPlanets(){
+        var planets = await fetchPlanets()
+        setPlanets(characters);
     }
-    async function fetchCharacters() {
-        var characterUrl = `${baseUrl}/characters`;
-        return await fetch(characterUrl)
+    async function fetchPlanets() {
+        var PlanetUrl = `${baseUrl}/planets/:id`;
+        return await fetch(PlanetUrl)
       .then(res => res.json())
   }
     useEffect(() => {getCharacters()}, []);
     
     console.log(characters)
     const CharactersHtml = characters.map((character) =>
-        <div><Link to ={`/Characters/${character.id}`} >{character.name}</Link></div>);
+        <div><Link to = "character" state = {{"id":character.id}}>{character.name}</Link></div>);
 
         return (
         <div>
