@@ -42,7 +42,7 @@ const baseUrl = `http://localhost:4000/api`
             </section>
             <section id="planets">
             <h2>Homeworld</h2>
-            <Link to ={`/Characters/${character.homeworld}`} ><p><span id="homeworld">{character.Homeworld?.name}</span></p></Link>
+            <Link to ={`/Planet/${character.homeworld}`} ><p><span id="homeworld">{character.Homeworld?.name}</span></p></Link>
             </section>
             <section id="films">
             <h2>Films appeared in</h2>

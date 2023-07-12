@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
-import Films from './films';
 import { useParams } from 'react-router-dom';
 const baseUrl = `http://localhost:4000/api`
 
@@ -35,11 +34,11 @@ const baseUrl = `http://localhost:4000/api`
             </section>
             <section id="characters">
             <h2>Characters</h2>
-            <FilmCharacters/>
+            <FilmCharacters id={id}/>
             </section>
             <section id="planets">
             <h2>Planets</h2>
-            <ul></ul>
+            <FilmPlanets id = {id}/>
             </section>
         </div>
         )
@@ -54,8 +53,8 @@ const baseUrl = `http://localhost:4000/api`
     }
 
     async function fetchFilmCharacters() {
-        var chractersUrl = `${baseUrl}/films/${props.id}/characters`;
-        return await fetch(chractersUrl)
+        var charactersUrl = `${baseUrl}/films/${props.id}/characters`;
+        return await fetch(charactersUrl)
       .then(res => res.json())
   }
     useEffect(() => {getCharacters()}, []);
@@ -67,6 +66,31 @@ const baseUrl = `http://localhost:4000/api`
         <div>
             {
             CharactersHtml
+            }
+        </div>
+        )
+}
+function FilmPlanets(props){
+    const[planets, setPlanets] = useState([]);
+    async function getPlanets(){
+        var planets = await fetchFilmPlanets()
+        setPlanets(planets);
+    }
+
+    async function fetchFilmPlanets() {
+        var planetsUrl = `${baseUrl}/films/${props.id}/planets`;
+        return await fetch(planetsUrl)
+      .then(res => res.json())
+  }
+    useEffect(() => {getPlanets()}, []);
+    
+    const PlanetsHtml = planets.map((planet) =>
+        <div><Link to = {`/Planet/${planet.id}`}>{planet.name}</Link></div>);
+
+        return (
+        <div>
+            {
+            PlanetsHtml
             }
         </div>
         )

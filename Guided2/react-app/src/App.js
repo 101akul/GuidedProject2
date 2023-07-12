@@ -3,6 +3,7 @@ import Characters from './component/characters';
 import Character from './component/character';
 import { Route,Routes } from 'react-router-dom';
 import Film from './component/film';
+import Planet from './component/planets';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Route exact path ="/" element= {<Characters/>}/>
           <Route path ="/Characters/:id" element= {<Character/>}/>
           <Route path = "/Film/:id" element = {<Film/>}/>
+          <Route path = "Planet/:id" element = {<Planet/>}/>
         </Routes>
     </div>
   );
