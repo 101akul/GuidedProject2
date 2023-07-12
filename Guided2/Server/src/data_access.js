@@ -62,7 +62,11 @@ module.exports.call = async function call(operation, parameters, callback) {
 
         case 'findplanetoffilm':
             collection = db.collection("films_planets");
+<<<<<<< Updated upstream
             const out = await collection.find({film_id: Number(parameters.id)}).toArray();
+=======
+            const out = await collection.find({film_id: Number(parameters.id)}).project({_id: 0, planet_id: 1}).toArray();
+>>>>>>> Stashed changes
             temp = []
             for(let i =0; i<out.length; i++)
             {
@@ -75,7 +79,11 @@ module.exports.call = async function call(operation, parameters, callback) {
         
         case 'findcharactersoffilm':
             collection = db.collection("films_characters");
+<<<<<<< Updated upstream
             const output = await collection.find({film_id: Number(parameters.id)}).toArray();
+=======
+            const output = await collection.find({film_id: Number(parameters.id)}).project({_id: 0}).toArray();
+>>>>>>> Stashed changes
             temp = [];
             for(let i =0; i<output.length; i++)
             {
@@ -88,7 +96,11 @@ module.exports.call = async function call(operation, parameters, callback) {
 
         case 'findfilmsofcharacters':
             collection = db.collection("films_characters");
+<<<<<<< Updated upstream
             const output1 = await collection.find({character_id: Number(parameters.id)}).toArray();
+=======
+            const output1 = await collection.find({character_id: Number(parameters.id)}).project({_id: 0}).toArray();
+>>>>>>> Stashed changes
             temp = [];
             for(let i =0; i<output1.length; i++)
             {

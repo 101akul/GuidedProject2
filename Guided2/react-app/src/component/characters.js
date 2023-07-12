@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
+import Character from './character';
 const baseUrl = `http://localhost:4000/api`
 
  function Characters(){
