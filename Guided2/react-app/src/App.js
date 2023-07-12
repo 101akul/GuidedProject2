@@ -9,7 +9,7 @@ import Film from './component/film';
 function App() {
   return (
     <div className="App">
-<<<<<<< Updated upstream
+
         <Routes>
           <Route exact path ="/" element= {<Characters/>}/>
           <Route path ="/Characters/:id" element= {<Character/>}/>
